@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="cont">
+        <div class="header">
+            <div class="title">
+                <h3>The Odin Library</h3>
+            </div>
+            <div class="but">
+                <button id="add">Add Book</button>
+            </div>
+        </div>
+        <div class="main">
+            <!-- <div class="book"></div> -->
+            <div class="book">
+                
+            </div>
+            
+        </div>
+    </div>
+    <dialog id="book_dialog">
+        <form>
+            <label for="title">Book Title:</label>
+            <input type="text" id="title" required>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" required>
+
+            <label for="pages">Number of pages:</label>
+            <input id="pages" type="number" required>
+            <div class="rd">
+            <label for="read">Read: Yes -</label>
+            <input id="read" type="checkbox">
+            </div>
+            <button>Submit</button>
+        </form>
+    </dialog>
+    <script src="./scr.js"></script>
+</body>
+</html>
+
