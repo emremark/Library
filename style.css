@@ -23,7 +23,7 @@ body {
     display: flex;
     justify-content: center;
 }
-.main {
+#main {
     height: 85vh;
     width: 100vw;
     display: grid;
