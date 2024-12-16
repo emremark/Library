@@ -38,22 +38,42 @@ function makeBook(t,a,n,r) {
 function makeDiv(argu) {
             const newDiv = document.createElement("div");
             const ndc = document.createElement("div");
+            const chk = document.createElement("input");
+            chk.type = "checkbox";
+            chk.id = "readCh"
+            const lab = document.createElement("label");
+            lab.htmlFor = "readCh";
             ndc.className = "dcont";
             newDiv.className = "book";
             ndc.innerHTML = argu.info();
             const rmv = document.createElement("button");
             rmv.textContent = "X";
+            lab.textContent = "Change read status"
             rmv.className = "removing";
             const parent = document.getElementById("main");
 
             parent.appendChild(newDiv);
             newDiv.appendChild(ndc);
+            if (argu.read === "Read") {
+                chk.checked = true;
+                newDiv.appendChild(chk);
+            }
+            else {
+                chk.checked = false;
+                newDiv.appendChild(chk);
+            }
+            newDiv.appendChild(lab);
             newDiv.appendChild(rmv);
 
             rmv.addEventListener("click", () => {
                 newDiv.remove();
                 let ind = myLib.indexOf(argu);
                 myLib.splice(ind, 1);
+                
+            })
+            chk.addEventListener("click", () => {
+                argu.read = chk.checked ? "Read" : "Not Read";
+                ndc.innerHTML = argu.info();
             })
 }
 
