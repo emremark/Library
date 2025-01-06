@@ -1,3 +1,69 @@
+class Library {
+    constructor() {
+        this.books = [];
+    }
+    
+    addBook(title, author, pages) {
+        const book = {title, author, pages};
+        this.books.push(book);
+    }
+    
+}
+
+const uiControler = (() => {
+    const book = new Library;
+    const dial = document.getElementById("book_dialog");
+    const newBook = document.getElementById("add");
+    const cls = document.getElementById("close");
+
+    newBook.addEventListener("click", () => {
+        dial.showModal();
+    })
+
+    cls.addEventListener("click", () => {
+        dial.close();
+    })
+
+    const submition = () => {
+        let title = document.getElementById("title").value;
+        let author = document.getElementById("author").value;
+        let pages = document.getElementById("pages").value;
+        book.addBook(title,author,pages);
+    }
+
+    const divCreate = () => {
+        const parent = document.getElementById("main");
+        const newDiv = document.createElement("div");
+        
+        const titl = document.createElement("h3");
+        const autho = document.createElement("h3"); 
+        const page = document.createElement("h3");  
+
+        newDiv.className = "book";
+
+        titl.textContent = `Title: ${book.books[book.books.length - 1].title}`;
+        autho.textContent = `Author: ${book.books[book.books.length - 1].author}`;
+        page.textContent = `Pages: ${book.books[book.books.length - 1].pages}`;
+
+        parent.appendChild(newDiv);
+        newDiv.appendChild(titl);
+        newDiv.appendChild(autho);
+        newDiv.appendChild(page);
+
+    }
+
+    const sub_btn = document.getElementById("submit");
+    sub_btn.addEventListener("click", () => {
+        submition();
+        divCreate();
+        document.getElementById("forma").reset();
+        dial.close();
+    });
+
+})();
+
+
+/*
 function Book (title, author, n_pages, read) {
     this.title = title;
     this.author = author;
@@ -34,6 +100,8 @@ function makeBook(t,a,n,r) {
     return bk
     
 }
+    */
+   /*
 //Create a div for Book object, display it on page. Event listener to remove book button
 function makeDiv(argu) {
             const newDiv = document.createElement("div");
@@ -90,4 +158,4 @@ sub_btn.addEventListener("click", () => {
     document.getElementById("forma").reset();
     dial.close();
 })
-
+*/
