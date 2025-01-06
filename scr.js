@@ -3,8 +3,8 @@ class Library {
         this.books = [];
     }
     
-    addBook(title, author, pages) {
-        const book = {title, author, pages};
+    addBook(title, author, pages, read) {
+        const book = {title, author, pages, read};
         this.books.push(book);
     }
     
@@ -28,7 +28,8 @@ const uiControler = (() => {
         let title = document.getElementById("title").value;
         let author = document.getElementById("author").value;
         let pages = document.getElementById("pages").value;
-        book.addBook(title,author,pages);
+        let read = document.getElementById("read").checked ? "read" : "not read";
+        book.addBook(title,author,pages,read);
     }
 
     const divCreate = () => {
@@ -38,17 +39,26 @@ const uiControler = (() => {
         const titl = document.createElement("h3");
         const autho = document.createElement("h3"); 
         const page = document.createElement("h3");  
+        const reading = document.createElement("h3");
+        
+        const readC = document.createAttribute("button");
+        const remove = document.createAttribute("button");
+        remove.textContent = "X";
+
+
 
         newDiv.className = "book";
 
         titl.textContent = `Title: ${book.books[book.books.length - 1].title}`;
         autho.textContent = `Author: ${book.books[book.books.length - 1].author}`;
         page.textContent = `Pages: ${book.books[book.books.length - 1].pages}`;
+        reading.textContent = `Book ${book.books[book.books.length - 1].read}`;
 
         parent.appendChild(newDiv);
         newDiv.appendChild(titl);
         newDiv.appendChild(autho);
         newDiv.appendChild(page);
+        newDiv.appendChild(reading);
 
     }
 

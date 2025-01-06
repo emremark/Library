@@ -22,7 +22,7 @@
         </div>
     </div>
     <dialog id="book_dialog">
-        <form id="forma" method="dialog"> <!--method: dialog closes the form once submited-->
+        <form id="forma"> <!--method: dialog closes the form once submited-->
             <div class="close">
                 <button autofocus id="close">X</button>
             </div>
@@ -36,14 +36,14 @@
             <input id="pages" type="number" required>
 
             <div class="rd">
-            <label for="read">Read: Yes -</label>
+            <label for="read">Read the book: Yes -</label>
             <input id="read" type="checkbox">
             </div>
 
-            <button id="submit">Submit</button>
+            <button id="submit" type="submit">Submit</button>
         </form>
     </dialog>
-    <script src="./scr.js"></script>
+    <script src="./scr.js" defer></script>
 </body>
 </html>
 
