@@ -63,3 +63,6 @@ form input {
 .close {
     align-self: flex-end;
 }
+button {
+    font-size: 1em;
+}
